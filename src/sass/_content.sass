@@ -67,6 +67,7 @@
     background-image: url(../images/cloud-drizzle.svg)
 
 .devices
+  position: relative
   display: flex
   width: 335px
   padding-bottom: 20px
@@ -78,9 +79,9 @@
     flex-direction: column
     justify-content: space-between
     align-items: flex-start
-    min-width: 170px
-    min-height: 92px
-    padding: 13px 15px 15px
+    min-width: 185px
+    min-height: 105px
+    padding: 0 15px 15px 0
     margin-right: 20px
     background-color: $bg-lgray
     +prefixes(border-radius, "20px")
@@ -88,12 +89,20 @@
     &:first-child
       margin-left: 20px
 
+  &__link
+    position: absolute
+    width: 200px
+    height: 118px
+    display: block
+    background-color: rgba(255, 0, 0, .5)
+    text-decoration: none
+
 .item
 
   &__temp_off
     width: 13px
     height: 24px
-    margin: 1px 0 0 5px
+    margin: 14px 0 0 20px
     background: no-repeat center/cover
     background-image: url(../images/icon_temperature@1x.png)
     background-image: -webkit-image-set(url(../images/icon_temperature@2x.png) 2x, url(../images/icon_temperature@1x.png) 1x)
@@ -103,7 +112,7 @@
   &__temp_on
     width: 13px
     height: 24px
-    margin: 1px 0 0 4px
+    margin: 14px 0 0 19px
     background: no-repeat center/cover
     background-image: url(../images/icon_temperature_2@1x.png)
     background-image: -webkit-image-set(url(../images/icon_temperature_2@2x.png) 2x, url(../images/icon_temperature_2@1x.png) 1x)
@@ -113,7 +122,7 @@
   &__sun_off
     width: 24px
     height: 24px
-    margin: 2px 0 0 -1px
+    margin: 15px 0 0 14px
     background: no-repeat center/cover
     background-image: url(../images/icon_sun@1x.png)
     background-image: -webkit-image-set(url(../images/icon_sun@2x.png) 2x, url(../images/icon_sun@1x.png) 1x)
@@ -123,7 +132,7 @@
   &__sun_on
     width: 24px
     height: 24px
-    margin: 1px 0 0 -1px
+    margin: 14px 0 0 14px
     background: no-repeat center/cover
     background-image: url(../images/icon_sun_2@1x.png)
     background-image: -webkit-image-set(url(../images/icon_sun_2@2x.png) 2x, url(../images/icon_sun_2@1x.png) 1x)
@@ -133,7 +142,7 @@
   &__clock
     width: 24px
     height: 24px
-    margin-left: -2px
+    margin-left: 13px
     background: no-repeat center/cover
     background-image: url(../images/icon_scheduled.png)
     background-image: -webkit-image-set(url(../images/icon_scheduled.png) 2x, url(../images/icon_scheduled.png) 1x)

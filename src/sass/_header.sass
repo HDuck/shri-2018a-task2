@@ -3,6 +3,7 @@
   top: 0
   left: 0
   right: 0
+  z-index: 2
   display: flex
   justify-content: space-between
   align-items: flex-start
@@ -53,13 +54,13 @@
     top: 0
     right: 0
     left: 0
-    padding: 0 48px
+    padding: 0 48px 10px
     width: auto
     height: 4px
     background-color: $bg-white
     opacity: 0
     visibility: hidden
-    +prefixes(transition, "visibility 0s linear .25s, height .9s ease-out .25s, opacity .4s linear 0s")
+    +prefixes(transition, "visibility 0s linear .1s, height .75s ease-out .1s, opacity .3s linear 0s")
 
     &__item
       position: relative
@@ -75,13 +76,13 @@
       
       &:first-child
         margin-top: 66px
-        +prefixes(transition-delay, ".35s, .5s")
+        +prefixes(transition-delay, ".25s, .35s")
 
       &:nth-child(2)
-        +prefixes(transition-delay, ".35s, .75s")
+        +prefixes(transition-delay, ".25s, .6s")
 
       &:last-child
-        +prefixes(transition-delay, ".35s, 1s")
+        +prefixes(transition-delay, ".25s, .85s")
     
     &__link
       display: inline-block
