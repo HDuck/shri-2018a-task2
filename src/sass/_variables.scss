@@ -1,0 +1,23 @@
+%arial {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+%arialb {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+%flexColFSFS {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+$txt-black: #333333;
+$txt-rblack: #000000;
+$txt-gray: #858585;
+$bg-white: #ffffff;
+$bg-gray: #858585;
+$bg-lgray: #f7f7f7;
+$bg-yellow: #ffd93e;
