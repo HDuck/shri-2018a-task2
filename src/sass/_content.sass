@@ -21,6 +21,12 @@
     background-image: -webkit-image-set(url(../images/bg@2x.png) 2x, url(../images/bg@1x.png) 1x)
     background-image: image-set(url(../images/bg@2x.png) 2x, url(../images/bg@1x.png) 1x)
     +prefixes(border-radius, "20px")
+  
+  & .devices__item:nth-child(2)
+    padding-bottom: 14px
+
+    & .item__time
+      margin-top: 5px
 
 .greet-msg
   @extend %flexColFSFS
@@ -69,7 +75,8 @@
 .devices
   position: relative
   display: flex
-  width: 335px
+  width: 315px
+  margin-left: 20px
   padding-bottom: 20px
   overflow: hidden
   overflow-x: scroll
@@ -86,16 +93,19 @@
     background-color: $bg-lgray
     +prefixes(border-radius, "20px")
 
-    &:first-child
-      margin-left: 20px
-
   &__link
     position: absolute
     width: 200px
-    height: 118px
+    height: 120px
     display: block
-    background-color: rgba(255, 0, 0, .5)
+    background: rgba(255, 0, 0, .3)
     text-decoration: none
+
+    &:nth-child(3)
+      left: 220px
+
+    &:nth-child(5)
+      left: 440px
 
 .item
 
@@ -142,7 +152,7 @@
   &__clock
     width: 24px
     height: 24px
-    margin-left: 13px
+    margin: 13px 0 0 13px
     background: no-repeat center/cover
     background-image: url(../images/icon_scheduled.png)
     background-image: -webkit-image-set(url(../images/icon_scheduled.png) 2x, url(../images/icon_scheduled.png) 1x)
@@ -151,6 +161,7 @@
 
   &__desc
     @extend %flexColFSFS
+    margin-left: 15px
 
   &__name
     font-size: 14px
@@ -173,12 +184,12 @@
 
 .scripts
   @extend .devices
-  width: 375px
+  width: 355px
   padding-bottom: 0
 
   &__item
     @extend .devices__item
-    min-height: 72px
+    min-height: 85px
     margin-right: 15px
 
     & .item__name
@@ -203,17 +214,44 @@
     position: relative
 
   & .devices
-    width: 375px
+    width: 355px
     margin-top: 17px
     padding-bottom: 0
 
     &__item
       margin-right: 15px
-      min-height: 91px
-      padding-bottom: 14px
-    
+
+      & .item__time
+        margin-top: 5px
+
+    &__link
+
+      &:nth-child(3)
+        left: 215px
+
+      &:nth-child(5)
+        left: 430px
+
+      &:nth-child(7)
+        left: 645px
+
+      &:nth-child(9)
+        left: 860px
+
+      &:nth-child(11)
+        left: 1075px
+
+      &:nth-child(13)
+        left: 1290px
+
+      &:nth-child(15)
+        left: 1505px
+
+      &:nth-child(17)
+        left: 1720px
+
     & .item__sun_off
-      margin-top: 1px
+      margin-top: 14px
 
 .types
   
@@ -284,6 +322,7 @@
       height: 100%
       color: $txt-rblack
       text-decoration: none
+
 #types
 
   &:target
