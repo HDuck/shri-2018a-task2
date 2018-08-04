@@ -1,0 +1,62 @@
+@media (min-width: 1365.9px)
+  
+  .container
+    width: 1366px
+    margin: 0 auto
+
+  .header
+    position: static
+    justify-content: flex-start
+    align-items: center
+    width: 1326px
+    padding: 23px 0 21px 40px
+    border-bottom: 1px solid #f0f0f0
+
+  .logo-icon
+    margin-bottom: 5px
+
+  .menu
+    margin: 0 0 0 50px
+
+    &-mobi-icon
+      display: none
+
+      &_close
+        display: none
+
+    &-list
+      position: static
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+      width: 300px
+      height: auto
+      padding: 0
+      visibility: visible
+      opacity: 1
+
+      &__item
+        position: static
+        width: auto
+        margin-right: 26px
+        border-bottom: none
+        visibility: visible
+        opacity: 1
+
+        &:first-child
+          margin-top: 0
+          margin-right: 28px
+
+        &:nth-child(2) .menu-list__link
+          color: $txt-black
+          opacity: .6
+
+        &:nth-child(3) .menu-list__link
+          color: $txt-black
+          opacity: .6
+
+
+      &__link
+        width: auto
+        padding: 14px 0
