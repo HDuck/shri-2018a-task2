@@ -831,6 +831,7 @@
   -ms-animation: pop-up-btn .3s ease-out forwards;
   -o-animation: pop-up-btn .3s ease-out forwards;
   animation: pop-up-btn .3s ease-out forwards;
+  outline: none;
 }
 .pop-up__btn:last-child {
   width: 333px;
@@ -860,6 +861,7 @@
   -ms-animation: pop-up-btn_close .3s ease-out forwards;
   -o-animation: pop-up-btn_close .3s ease-out forwards;
   animation: pop-up-btn_close .3s ease-out forwards;
+  outline: none;
 }
 .pop-up__btn_close:last-child {
   width: 333px;
