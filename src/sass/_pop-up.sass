@@ -1,98 +1,145 @@
+.container_anim
+  +prefixes(animation, "cont .3s linear forwards")
+
+  &_close
+    +prefixes(animation, "cont_close .3s linear forwards")
+
 .pop-up
-  position: absolute
-  visibility: hidden
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  overflow-y: scroll
 
-#pop-up_light
-
-  &:target + .container
-    filter: blur(3px)
-
-  &:target
+  &__bg
     position: fixed
     top: 0
-    right: 0
-    bottom: 0
     left: 0
-    z-index: 5
-    width: 100%
+    width: 100vw
     height: 100vh
-    visibility: visible
+    animation: pop-up-bg .3s linear forwards
 
-    &  .pop-up__bg
-      position: absolute
-      top: 0
-      right: 0
-      left: 0
-      bottom: 0
-      display: flex
-      flex-direction: column
-      justify-content: flex-start
-      align-items: center
-      width: 100%
-      height: 100%
-      background: $bg-pop-up
+    &_close
+      animation: pop-up-bg_close .3s linear forwards
+      
 
-    & .pop-up__cont
-      width: 334px
-      margin: 21px 20px 0 18px 
-      padding: 21px 0 26px
-      background: $bg-white
+  &__cont
+    position: relative
+    +prefixes(border-radius, "20px")
+    +prefixes(animation, "pop-up-cont .3s ease-out forwards")
+
+    &_close
+      position: relative
       +prefixes(border-radius, "20px")
+      +prefixes(animation, "pop-up-cont_close .3s ease-out forwards")
 
-    & .pop-up__btn
+  &__btn
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 333px
+    min-height: 20px
+    margin: 15px auto
+    padding: 21px 113px 18.4px
+    color: $txt-rblack
+    text-decoration: none
+    background-color: $bg-yellow
+    border: none
+    +prefixes(border-radius, "20px")
+    +prefixes(animation, "pop-up-btn .3s ease-out forwards")
+
+    &:last-child
+      width: 333px
+      margin-top: 0
+      padding-top: 22px
+      background-color: $bg-white
+
+    &_close
       display: flex
       justify-content: center
       align-items: center
-      min-width: 108px
+      width: 333px
       min-height: 20px
       margin: 15px auto
       padding: 21px 113px 18.4px
       color: $txt-rblack
       text-decoration: none
       background-color: $bg-yellow
+      border: none
       +prefixes(border-radius, "20px")
-
+      +prefixes(animation, "pop-up-btn_close .3s ease-out forwards")
+      
       &:last-child
+        width: 333px
         margin-top: 0
+        padding-top: 22px
         background-color: $bg-white
 
-  &:target .dev
+.dev
 
-    &-type
-      display: none
+  &-type__light
+    display: none
 
-    &-name
-      text-transform: capitalize
-      line-height: 21px
-      margin: 0 0 4px 20px
+  &-type__heat
+    display: none
 
-    &-time
-      margin: 0 0 15px 20px
+  &-name
+    display: block
+    text-transform: capitalize
+    line-height: 21px
+    margin: 0 0 4px 20px
+    +prefixes(animation, "pop-up-dev-name .3s ease-out forwards")
 
-    &-list
-      display: flex
-      justify-content: flex-start
-      align-items: flex-start
-      margin: 0 0 25px 20px
-      padding-right: 0
-      overflow: hidden
-      overflow-x: scroll
+  &-time
+    display: block
+    margin: 0 0 15px 20px
 
-      &__item
-        height: 15px
-        padding: 7px 19px 8px 15px
-        margin-right: 10px
-        color: $txt-rblack
-        white-space: nowrap
-        background-color: $bg-vlgray
-        +prefixes(border-radius, "20px")
-        list-style-type: none
+  &-list
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+    margin: 0 0 25px 20px
+    padding-right: 0
+    overflow: hidden
+    overflow-x: scroll
 
-        &:first-child
-          padding-right: 17px
-          background-color: $bg-yellow
+    &__item
+      height: 15px
+      padding: 7px 19px 8px 15px
+      margin-right: 10px
+      color: $txt-rblack
+      white-space: nowrap
+      background-color: $bg-vlgray
+      +prefixes(border-radius, "20px")
+      list-style-type: none
 
-    &-slider
+      &:first-child
+        padding-right: 17px
+        background-color: $bg-yellow
+      
+      &:nth-child(2)
+        margin-right: 9px
+
+  &-slider
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    width: 60px
+    height: 336px
+    margin: 0 auto
+    +prefixes(border-radius, "35px")
+    +prefixes(animation, "pop-up-slider .3s ease-out forwards")
+
+    &-light_grad
+      +gradient("90deg, #FFE88C 0%, #FFB100 100%")
+
+    &-heat_grad
+      +gradient("90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%")
+
+    &_close
       position: relative
       display: flex
       flex-direction: column
@@ -103,41 +150,152 @@
       margin: 0 auto
       +gradient("90deg, #FFE88C 0%, #FFB100 100%")
       +prefixes(border-radius, "35px")
+      +prefixes(animation, "pop-up-slider_close .3s ease-out forwards")
+    
+    &__light
+      width: 36px
+      height: 36px
+      background: no-repeat center/contain
 
-      &__light
-        width: 36px
-        height: 36px
-        background: no-repeat center/contain
+      &:first-child
+        margin-top: 13px
+        background-image: url(../images/icon_sun_max.png)
+        background-image: -webkit-image-set(url(../images/icon_sun_max@2x.png) 2x, url(../images/icon_sun_max.png) 1x)
+        background-image: image-set(url(../images/icon_sun_max@2x.png) 2x, url(../images/icon_sun_max.png) 1x)
+        background-image: url(../images/icon_sun_max.svg)
 
-        &:first-child
-          margin-top: 13px
-          background-image: url(../images/icon_sun_max.png)
-          background-image: -webkit-image-set(url(../images/icon_sun_max@2x.png) 2x, url(../images/icon_sun_max.png) 1x)
-          background-image: image-set(url(../images/icon_sun_max@2x.png) 2x, url(../images/icon_sun_max.png) 1x)
-          background-image: url(../images/icon_sun_max.svg)
+      &:last-child
+        margin-bottom: 12px
+        background-image: url(../images/icon_sun_min.png)
+        background-image: -webkit-image-set(url(../images/icon_sun_min@2x.png) 2x, url(../images/icon_sun_min.png) 1x)
+        background-image: image-set(url(../images/icon_sun_min@2x.png) 2x, url(../images/icon_sun_min.png) 1x)
+        background-image: url(../images/icon_sun_min.svg)
 
-        &:last-child
-          margin-bottom: 12px
-          background-image: url(../images/icon_sun_min.png)
-          background-image: -webkit-image-set(url(../images/icon_sun_min@2x.png) 2x, url(../images/icon_sun_min.png) 1x)
-          background-image: image-set(url(../images/icon_sun_min@2x.png) 2x, url(../images/icon_sun_min.png) 1x)
-          background-image: url(../images/icon_sun_min.svg)
+    &__heat
+      @extend .sec-txt_s18b
+      line-height: 21px
+      color: $txt-white
+      letter-spacing: 0
 
-      &__btn
-        position: absolute
-        right: -4px
-        top: 101px
-        width: 60px
-        height: 60px
-        border: 4px solid $bg-white
-        +prefixes(box-shadow, "0 1px 10px -7px rgba(0, 0, 0, .5)")
-        +prefixes(border-radius, "35px")
+      &:first-child
+        margin-top: 17px
 
         &::after
-          content: ""
-          position: absolute
-          width: 54px
-          height: 54px
-          border: 3px solid rgba(51, 51, 51, .1)
-          +prefixes(border-radius, "30px")
+          content: "+30"
 
+      &:last-child
+        margin-bottom: 13px
+
+        &::after
+          content: "-10"
+
+    &__btn
+      position: absolute
+      right: -4px
+      top: 101px
+      width: 60px
+      height: 60px
+      border: 4px solid $bg-white
+      +prefixes(box-shadow, "0 1px 10px -7px rgba(0, 0, 0, .5)")
+      +prefixes(border-radius, "35px")
+
+      &::after
+        content: ""
+        position: absolute
+        width: 54px
+        height: 54px
+        border: 3px solid rgba(51, 51, 51, .1)
+        +prefixes(border-radius, "30px")
+
+  &-circ-slider
+    position: relative
+    width: 221px
+    height: 199px
+    margin: 103px auto 108px
+    padding-top: 22px
+    background: no-repeat center/contain
+    background-image: url(../images/Oval@1x.png)
+    background-image: -webkit-image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
+    background-image: image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
+    background-image: url(../images/Oval.svg)
+    +prefixes(animation, "pop-up-slider .3s ease-out forwards")
+
+    &_close
+      position: relative
+      width: 221px
+      height: 199px
+      margin: 103px auto 108px
+      padding-top: 22px
+      background: no-repeat center/contain
+      background-image: url(../images/Oval@1x.png)
+      background-image: -webkit-image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
+      background-image: image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
+      background-image: url(../images/Oval.svg)
+      +prefixes(animation, "pop-up-slider_close .3s ease-out forwards")
+
+    &::before
+      content: ""
+      position: absolute
+      top: 177px
+      left: 65px
+      width: 60px
+      height: 74px
+      background-color: $bg-white
+      +prefixes(transform, "rotate(-59deg)")
+
+    &::after
+      content: ""
+      position: absolute
+      top: 177px
+      left: 98px
+      width: 60px
+      height: 74px
+      background-color: $bg-white
+      +prefixes(transform, "rotate(59deg)")
+
+    &__inner-circ
+      position: relative
+      z-index: 2
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 185px
+      height: 184px
+      margin: 0 auto
+      background: no-repeat center/contain
+      background-image: url(../images/background@1x.png)
+      background-image: -webkit-image-set(url(../images/background@2x.png) 2x, url(../images/background@1x.png) 1x)
+      background-image: image-set(url(../images/background@2x.png) 2x, url(../images/background@1x.png) 1x)
+      background-image: url(../images/background.svg)
+
+    &__num
+      position: relative
+      display: block
+      margin: 0 0 9px 2px
+      @extend %arialb
+      font-size: 66px
+      line-height: 76px
+      color: $txt-black
+      letter-spacing: 0
+
+    &__unused-temp
+      position: absolute
+      top: 130px
+      left: 154px
+      width: 65px
+      height: 77px
+      background: no-repeat center/contain
+      background-image: url(../images/Oval_Copy@1x.png)
+      background-image: -webkit-image-set(url(../images/Oval_Copy@2x.png) 2x, url(../images/Oval_Copy@1x.png) 1x)
+      background-image: image-set(url(../images/Oval_Copy@2x.png) 2x, url(../images/Oval_Copy@1x.png) 1x)
+      background-image: url(../images/Oval_Copy.svg)
+
+    &__btn
+      position: absolute
+      top: 113px
+      left: 186px
+      z-index: 3
+      width: 50px
+      height: 50px
+      background: url(../images/Icons/icon_arrow.svg) no-repeat bottom center
+      +prefixes(transform, "rotate(110deg)")

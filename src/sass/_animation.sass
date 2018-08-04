@@ -1,0 +1,118 @@
+@keyframes pop-up-cont
+  from
+    width: 200px
+    height: 120px
+    background-color: $bg-lgray
+
+  to
+    top: 0
+    left: 0
+    width: 334px
+    height: 445px
+    margin: 21px 0 0 20px
+    padding: 21px 0 26px
+    background-color: $bg-white
+
+@keyframes pop-up-cont_close
+  from
+    top: 0
+    left: 0
+    width: 334px
+    height: 445px
+    margin: 21px 0 0 20px
+    padding: 21px 0 26px
+    background-color: $bg-white
+    opacity: 1
+    visibility: visible
+
+  #{60%}
+    opacity: 1
+
+  to
+    width: 200px
+    height: 120px
+    margin: 0
+    padding: 0
+    background-color: $bg-lgray
+    opacity: 0
+    visibility: hidden
+
+@keyframes pop-up-dev-name
+  from
+    opacity: 0
+
+  #{65%}
+    opacity: 0
+
+  to
+    opacity: 1
+
+@keyframes pop-up-bg
+  to
+    background-color: $bg-pop-up
+
+@keyframes pop-up-bg_close
+  to
+    background-color: $bg-pop-up_close
+
+@keyframes cont
+  from
+    filter: blur(0)
+
+  to
+    filter: blur(3px)
+
+@keyframes cont_close
+  from
+    filter: blur(3px)
+
+  to
+    filter: blur(0)
+
+@keyframes pop-up-slider
+  from
+    visibility: hidden
+    opacity: 0
+
+  #{60%}
+    opacity: 0
+
+  to
+    visibility: visible
+    opacity: 1
+
+@keyframes pop-up-slider_close
+  from
+    visibility: visible
+    opacity: 1
+
+  #{20%}
+    opacity: 0
+
+  to
+    visibility: hidden
+    opacity: 0
+
+@keyframes pop-up-btn
+  from
+    visibility: hidden
+    opacity: 0
+
+  #{50%}
+    opacity: 0
+
+  to
+    visibility: visible
+    opacity: 1
+
+@keyframes pop-up-btn_close
+  from
+    visibility: visible
+    opacity: 1
+
+  #{60%}
+    opacity: 0
+
+  to
+    visibility: hidden
+    opacity: 0

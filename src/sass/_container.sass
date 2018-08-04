@@ -2,6 +2,10 @@
   margin: 0
   padding: 0
 
+.container
+  filter: blur(0)
+  +prefixes(transition, "filter .85s ease-out 0s")
+
 .sec-txt
   @extend %arial
   font-size: 12px

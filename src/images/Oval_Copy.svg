@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="64px" height="75px" viewBox="0 0 64 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
-    <title>Oval Copy</title>
-    <desc>Created with Sketch.</desc>
     <defs>
         <path d="M-42.5,91 C18.5274649,91 68,41.5274649 68,-19.5 C68,-80.5274649 18.5274649,-130 -42.5,-130 C-103.527465,-130 -153,-80.5274649 -153,-19.5 C-153,41.5274649 -103.527465,91 -42.5,91 Z" id="path-1"></path>
         <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="221" height="221" fill="white">
