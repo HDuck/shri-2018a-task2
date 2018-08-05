@@ -74,6 +74,24 @@
       opacity: 0
       visibility: hidden
 
+  @keyframes dummy_hide
+    from
+      opacity: 1
+      visibility: visible
+  
+    to
+      opacity: 0
+      visibility: hidden
+
+  @keyframes dummy_show
+    from
+      opacity: 0
+      visibility: hidden
+  
+    to
+      opacity: 1
+      visibility: visible
+  
   .container
     width: 1366px
     margin: 0 auto
@@ -206,7 +224,7 @@
       width: 185px
       margin: 0 0 15px
 
-    &__dummy
+    &__dummy, &__dummy_hide, &__dummy_show
       position: absolute
       bottom: 0
       left: 0
@@ -220,6 +238,12 @@
       background-image: image-set(url(../images/Icons/M@2x.png) 2x, url(../images/Icons/M@1x.png) 1x)
       background-image: url(../images/Icons/M.svg)     
       +prefixes(border-radius, "20px 20px 0 0")
+  
+      &_hide
+        +prefixes(animation, "dummy_hide .5s linear forwards")
+  
+      &_show
+        +prefixes(animation, "dummy_show .5s linear forwards")
 
   .item
 
