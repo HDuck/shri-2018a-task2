@@ -1,44 +1,42 @@
 "use strict";
 
-function init() {
-  
-  var devs = document.getElementsByClassName('devices__item');
-  for (var i = 0; i < devs.length; i++) {
-    devs[i].addEventListener('click', openPopUp);
-  }
-}
-
-//pop-up-animation
+//Анимация открытия pop-up окна
 function openPopUp(evt) {
 
   evt.stopPropagation();
 
+  //Запрещаем прокрутку содержимого за pop-up окном
   var bodyEl = document.body;
   bodyEl.style.overflow = 'hidden';
   
+  //Добавление анимации blur для контейнера
   var cont = document.getElementsByClassName('container')[0];
   cont.className += ' container_anim';
   
+  //Добавление серого фона
   var popUpBg = document.createElement('div');
   popUpBg.className = 'pop-up__bg';
   document.body.appendChild(popUpBg);
   
+  //Добавление обертки для pop-up окна
   var popUpWrapper = document.createElement('div');
   popUpWrapper.className = 'pop-up';
   document.body.appendChild(popUpWrapper);
   
+  //Анимация для mobile версии
   if (bodyEl.clientWidth < 1365) {
 
     var devItem = evt.currentTarget;
-    var devItemLoc = devItem.getBoundingClientRect();
+    var devItemLoc = devItem.getBoundingClientRect();  //Получаем координаты device__item
 
-    var nDevItem = devItem.cloneNode(true);
-    nDevItem.className = 'pop-up__cont';
-    nDevItem.style = 'top: ' + devItemLoc.top + 'px; left: ' + devItemLoc.left + 'px;';
-    popUpWrapper.appendChild(nDevItem);
+    var nDevItem = devItem.cloneNode(true); //Клонируем device__item
+    nDevItem.style = 'top: ' + devItemLoc.top + 'px; left: ' + devItemLoc.left + 'px;';  //Позиционируем клон на место оригинального device__item
+    nDevItem.className = 'pop-up__cont';  //Добавляем анимацию расширения окна
+    popUpWrapper.appendChild(nDevItem);  //Добавляем клон в обертку
     
     var devTypeClass = nDevItem.childNodes[1].className;
     
+    //Проверка на значок у device__item для последующего стилизирования слайдера
     if (devTypeClass === 'item__temp_off' || devTypeClass === 'item__temp_on') {
       var devSliderImg = '__heat';
       nDevItem.childNodes[1].className = 'dev-type__heat';
@@ -46,13 +44,15 @@ function openPopUp(evt) {
       var devSliderImg = '__light';
       nDevItem.childNodes[1].className = 'dev-type__light'
     }
-       
-    nDevItem.childNodes[3].className = '';
-    nDevItem.childNodes[3].childNodes[1].className = 'dev-name sec-txt_s18b';
-    nDevItem.childNodes[3].childNodes[3].className = 'dev-time sec-txt';
+
+    nDevItem.childNodes[3].className = '';  //Убираем стилизацию у item__desc
+    nDevItem.childNodes[3].childNodes[1].className = 'dev-name sec-txt_s18b'; //Добавляем анимацию и стилизацию item__name
+    nDevItem.childNodes[3].childNodes[3].className = 'dev-time sec-txt'; //Добавляем стилизацию item__time
     
+    //Проверка на 3-ий вид pop-up окна
     if (!(nDevItem.childNodes[3].childNodes[1].textContent == 'Xiaomi warm floor')) {
 
+      //Добавляем список с стандартными программами регулирования температуры/света
       var devTimeList = document.createElement('ul');
       devTimeList.className = 'dev-list';
 
@@ -62,6 +62,7 @@ function openPopUp(evt) {
         devTimeList.appendChild(devTimeListItem);
       }
 
+      //Заполнение текстом в зависимости от класса иконки при device__item
       if (nDevItem.childNodes[1].className === 'dev-type__light') {
 
         devTimeList.children[0].textContent = 'Вручную';
@@ -78,8 +79,10 @@ function openPopUp(evt) {
 
       nDevItem.appendChild(devTimeList);
 
+      //Добавляем слайдер
       var slider = document.createElement('div');
 
+      //Стилизуем градиент в зависимости от типа слайдера
       if (devSliderImg === '__light') {
         slider.className = 'dev-slider-light_grad dev-slider';
       } else if (devSliderImg === '__heat') {
@@ -90,28 +93,36 @@ function openPopUp(evt) {
       var sliderBtn = document.createElement('div');
       var sliderImgB = document.createElement('div');
 
+      //Добавляем граничные значения света/тепла и кнопку-регулятор
       sliderImgT.className = 'dev-slider' + devSliderImg;
       sliderBtn.className = 'dev-slider__btn';
       sliderImgB.className = 'dev-slider' + devSliderImg;
+      
       slider.appendChild(sliderImgT);
       slider.appendChild(sliderBtn);
       slider.appendChild(sliderImgB);
-
       nDevItem.appendChild(slider);
+      
     } else {
+      
+      //Добавляем круговой слайдер
       var circSlider = document.createElement('div');
       circSlider.className = 'dev-circ-slider';
 
+      //Позиционируем не заполненную полосу температуры
       var circUnused = document.createElement('div');
       circUnused.className = 'dev-circ-slider__unused-temp';
       
+      //Позиционируем внутреннее кольцо (с эффектом тени)
       var circInner = document.createElement('div');
       circInner.className = 'dev-circ-slider__inner-circ';
       
+      //Позиционируем число внутри слайдера
       var circNum = document.createElement('span');
       circNum.className = 'dev-circ-slider__num';
       circNum.textContent = '+23';
       
+      //Позиционируем кнопку-регулятор
       var circBtn = document.createElement('div');
       circBtn.className = 'dev-circ-slider__btn'
       
@@ -119,18 +130,21 @@ function openPopUp(evt) {
       circSlider.appendChild(circBtn);
       circSlider.appendChild(circUnused);
       circSlider.appendChild(circInner);
-      
       nDevItem.appendChild(circSlider);
     }
     
+    //Добавляем кнопку "Применить" в pop-up окно
     var acceptBtn = document.createElement('button');
-    acceptBtn.className = 'pop-up__btn sec-txt_s18b';
+    acceptBtn.className = 'pop-up__btn sec-txt_s18b';  //Анимируем и стилизуем кнопку
     acceptBtn.textContent = 'Применить';
     popUpWrapper.appendChild(acceptBtn);
     
+    //Добавляем кнопку "Закрыть" в pop-up окно
     var cancelBtn = document.createElement('button');
-    cancelBtn.className = 'pop-up__btn sec-txt_s18b';
+    cancelBtn.className = 'pop-up__btn sec-txt_s18b';  //Анимируем и стилизуем кнопку
     cancelBtn.textContent = 'Закрыть';
+    
+    //Добавляем действие при клике на кнопку закрыть
     cancelBtn.addEventListener('click', function(evt) {
       closePopUpAnim(evt);
       setTimeout(delPopUp, 400);
@@ -139,23 +153,28 @@ function openPopUp(evt) {
     popUpWrapper.appendChild(cancelBtn);
   }
 }
-  
+
+//Анимация закрытия pop-up окна
 function closePopUpAnim(evt) {
 
   evt.stopPropagation();
 
+  //Анимируем понижение blur эффекта до 0
   var cont = document.querySelector('.container_anim');
   cont.className += '_close';
 
+  //Анимируем исчезновение серого фона
   var popUpBg = document.querySelector('.pop-up__bg');
   popUpBg.className += '_close';
 
   var popUpBtns = document.querySelectorAll('.pop-up__btn');
 
+  //Анимируем исчезновение кнопок
   for (var i = 0; i < popUpBtns.length; i++) {
     popUpBtns[i].className = 'pop-up__btn_close sec-txt_s18b';
   }
   
+  //Проверяем какой слайдер в pop-up окне и анимируем его исчезновение
   if (document.querySelector('.dev-slider')) {
     var popUpSlider = document.querySelector('.dev-slider');
   } else if (document.querySelector('.dev-circ-slider')) {
@@ -163,10 +182,12 @@ function closePopUpAnim(evt) {
   }
   popUpSlider.className += '_close';
 
+  //Анимируем возврат клона device__item к его оригинальным размерам
   var popUpCont = document.querySelector('.pop-up__cont');
   popUpCont.className += '_close';
 }
 
+//Удаление pop-up окна после завершения анимации
 function delPopUp() {
 
   var popUpWrapper = document.querySelector('.pop-up');
@@ -180,4 +201,3 @@ function delPopUp() {
   document.body.removeChild(popUpWrapper);
 }
 
-window.onload = init;
