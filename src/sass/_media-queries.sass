@@ -1,5 +1,79 @@
 @media (min-width: 1365.9px)
 
+  @keyframes pop-up-cont
+    from
+      width: 200px
+      height: 120px
+      background-color: $bg-lgray
+
+    to
+      top: 189px
+      left: 367px
+      width: 579px
+      height: 187px
+      padding: 26px 25px 25px
+      background-color: $bg-white
+
+  @keyframes pop-up-cont_close
+    from
+      top: 189px
+      left: 367px
+      width: 579px
+      height: 187px
+      padding: 26px 25px 25px
+      background-color: $bg-white
+      opacity: 1
+      visibility: visible
+
+    #{60%}
+      opacity: 1
+
+    to
+      width: 200px
+      height: 120px
+      margin: 0
+      padding: 0
+      background-color: $bg-lgray
+      opacity: 0
+      visibility: hidden
+
+  @keyframes pop-up-cont-circ
+    from
+      width: 200px
+      height: 120px
+      background-color: $bg-lgray
+
+    to
+      top: 100px
+      left: 368px
+      width: 579px
+      height: 292px
+      padding: 26px 25px 25px
+      background-color: $bg-white
+
+  @keyframes pop-up-cont-circ_close
+    from
+      top: 100px
+      left: 368px
+      width: 579px
+      height: 292px
+      padding: 26px 25px 25px
+      background-color: $bg-white
+      opacity: 1
+      visibility: visible
+
+    #{60%}
+      opacity: 1
+
+    to
+      width: 200px
+      height: 120px
+      margin: 0
+      padding: 0
+      background-color: $bg-lgray
+      opacity: 0
+      visibility: hidden
+
   .container
     width: 1366px
     margin: 0 auto
@@ -287,4 +361,109 @@
       width: auto
       margin: 3px 0 0 0
       letter-spacing: .15px
+
+  .pop-up
+
+    &__cont-circ, &__cont-circ_close
+      position: relative
+      +prefixes(border-radius, "20px")
+
+    &__cont-circ
+      +prefixes(animation, "pop-up-cont-circ .3s ease-out forwards")
+   
+      &_close
+        +prefixes(animation, "pop-up-cont-circ_close .3s ease-out forwards")
       
+      & ~ .pop-up__btn, & ~ .pop-up__btn_close
+          
+        &:nth-child(2), &:last-child
+          top: 464px
+
+    &__btn, &__btn_close
+      position: absolute
+      width: 307px
+      margin: 0
+
+      &:nth-child(2)
+        top: 447px
+        left: 367px
+
+      &:last-child
+        top: 446px
+        left: 690px
+
+  .dev
+
+    &-type
+      position: absolute
+      top: 23px
+      right: 22px
+      display: block
+      width: 44px
+      height: 44px
+      margin: 0
+
+    &-name, &-time
+      margin-left: 0
+
+    &-name
+      font-size: 27px
+      line-height: 31px
+
+    &-time
+      font-size: 14px
+      line-height: 16px
+      margin-bottom: 21px
+
+    &-list
+      margin-left: 0
+
+      &__item
+        padding-right: 12px
+        font-family: Arial, sans-serif
+        font-weight: bold
+        font-style: normal
+
+        &:first-child
+          padding-right: 11px
+
+    &-slider
+      height: 580px
+      margin: 0
+    
+      &_rotate
+        +prefixes(transform, "rotate(90deg) translate(-260px, -260px)")
+
+      &__heat
+        +prefixes(transform, "rotate(-90deg)")
+
+        &:first-child
+          margin-top: 25px
+
+        &:last-child
+          margin-bottom: 27px
+
+    &-circ-slider, &-circ-slider_close
+      margin: 21px 0 0 182px
+
+      &::before
+        top: 171px
+        height: 63px
+
+      &::after
+        top: 172px
+        height: 60px
+
+      &__type-num
+        position: absolute
+        top: 26px
+        right: 67px
+        display: block
+        width: 62px
+        height: 43px
+        font-family: Arial, sans-serif
+        font-weight: bold
+        font-style: normal
+        font-size: 36px
+        line-height: 42px
+        color: $txt-black

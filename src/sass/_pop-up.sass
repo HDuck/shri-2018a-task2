@@ -12,29 +12,30 @@
   height: 100vh
   overflow-y: scroll
 
-  &__bg
+  &__bg, &__bg_close
     position: fixed
     top: 0
     left: 0
     width: 100vw
     height: 100vh
+
+  &__bg
     animation: pop-up-bg .3s linear forwards
 
     &_close
-      animation: pop-up-bg_close .3s linear forwards
-      
+      animation: pop-up-bg_close .3s linear forwards  
 
-  &__cont
+  &__cont, &__desk-cont, &__cont_close
     position: relative
     +prefixes(border-radius, "20px")
+    
+  &__cont
     +prefixes(animation, "pop-up-cont .3s ease-out forwards")
 
     &_close
-      position: relative
-      +prefixes(border-radius, "20px")
       +prefixes(animation, "pop-up-cont_close .3s ease-out forwards")
 
-  &__btn
+  &__btn, &__btn_close
     display: flex
     justify-content: center
     align-items: center
@@ -47,36 +48,18 @@
     background-color: $bg-yellow
     border: none
     +prefixes(border-radius, "20px")
-    +prefixes(animation, "pop-up-btn .3s ease-out forwards")
     outline: none
 
     &:last-child
-      width: 333px
       margin-top: 0
       padding-top: 22px
       background-color: $bg-white
 
+  &__btn
+    +prefixes(animation, "pop-up-btn .3s ease-out forwards")
+
     &_close
-      display: flex
-      justify-content: center
-      align-items: center
-      width: 333px
-      min-height: 20px
-      margin: 15px auto
-      padding: 21px 113px 18.4px
-      color: $txt-rblack
-      text-decoration: none
-      background-color: $bg-yellow
-      border: none
-      +prefixes(border-radius, "20px")
       +prefixes(animation, "pop-up-btn_close .3s ease-out forwards")
-      outline: none
-      
-      &:last-child
-        width: 333px
-        margin-top: 0
-        padding-top: 22px
-        background-color: $bg-white
 
 .dev
 
@@ -123,7 +106,7 @@
       &:nth-child(2)
         margin-right: 9px
 
-  &-slider
+  &-slider, &-slider_close
     position: relative
     display: flex
     flex-direction: column
@@ -133,7 +116,9 @@
     height: 336px
     margin: 0 auto
     +prefixes(border-radius, "35px")
-    +prefixes(animation, "pop-up-slider .3s ease-out forwards")
+
+  &-slider
+    +prefixes(animation, "pop-up-slider .3s ease-out forwards")    
 
     &-light_grad
       +gradient("90deg, #FFE88C 0%, #FFB100 100%")
@@ -142,16 +127,6 @@
       +gradient("90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%")
 
     &_close
-      position: relative
-      display: flex
-      flex-direction: column
-      justify-content: space-between
-      align-items: center
-      width: 60px
-      height: 336px
-      margin: 0 auto
-      +gradient("90deg, #FFE88C 0%, #FFB100 100%")
-      +prefixes(border-radius, "35px")
       +prefixes(animation, "pop-up-slider_close .3s ease-out forwards")
     
     &__light
@@ -209,7 +184,7 @@
         border: 3px solid rgba(51, 51, 51, .1)
         +prefixes(border-radius, "30px")
 
-  &-circ-slider
+  &-circ-slider, &-circ-slider_close
     position: relative
     width: 221px
     height: 199px
@@ -220,19 +195,11 @@
     background-image: -webkit-image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
     background-image: image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
     background-image: url(../images/Oval.svg)
-    +prefixes(animation, "pop-up-slider .3s ease-out forwards")
 
+  &-circ-slider
+    +prefixes(animation, "pop-up-slider .3s ease-out forwards")
+    
     &_close
-      position: relative
-      width: 221px
-      height: 199px
-      margin: 103px auto 108px
-      padding-top: 22px
-      background: no-repeat center/contain
-      background-image: url(../images/Oval@1x.png)
-      background-image: -webkit-image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
-      background-image: image-set(url(../images/Oval@2x.png) 2x, url(../images/Oval@1x.png) 1x)
-      background-image: url(../images/Oval.svg)
       +prefixes(animation, "pop-up-slider_close .3s ease-out forwards")
 
     &::before
