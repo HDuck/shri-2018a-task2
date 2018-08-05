@@ -1372,6 +1372,31 @@
     margin-right: 0;
     padding-right: 13px;
   }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1290px;
+    padding: 22px 36px 28px 40px;
+  }
+  .footer-list {
+    width: auto;
+    margin: 0;
+  }
+  .footer-list__item {
+    width: auto;
+    height: 14px;
+    margin: 0 17px 0 0;
+  }
+  .footer-list__link {
+    text-decoration: none;
+  }
+  .footer-copy {
+    width: auto;
+    margin: 3px 0 0 0;
+    letter-spacing: 0.15px;
+  }
 }
 
 /*# sourceMappingURL=src/css/style.css.map */
