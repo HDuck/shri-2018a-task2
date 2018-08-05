@@ -33,7 +33,7 @@ function openPopUp(evt) {
   var devTypeClass = nDevItem.childNodes[1].className;
 
   nDevItem.childNodes[3].className = '';  //Убираем стилизацию у item__desc
-  nDevItem.childNodes[3].childNodes[1].className = 'dev-name sec-txt_s18b'; //Добавляем анимацию и стилизацию item__name
+  nDevItem.childNodes[3].childNodes[1].className = 'sec-txt_s18b dev-name'; //Добавляем анимацию и стилизацию item__name
   nDevItem.childNodes[3].childNodes[3].className = 'dev-time sec-txt'; //Добавляем стилизацию item__time
 
   if (!(nDevItem.childNodes[3].childNodes[1].textContent == 'Xiaomi warm floor')) {

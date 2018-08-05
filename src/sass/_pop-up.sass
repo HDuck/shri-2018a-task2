@@ -69,12 +69,17 @@
   &-type__heat
     display: none
 
-  &-name
+  &-name, &-name_close
     display: block
     text-transform: capitalize
     line-height: 21px
     margin: 0 0 4px 20px
+
+  &-name
     +prefixes(animation, "pop-up-dev-name .3s ease-out forwards")
+    
+    &_close
+      +prefixes(animation, "pop-up-dev-name_close .3s ease-out forwards")
 
   &-time
     display: block
