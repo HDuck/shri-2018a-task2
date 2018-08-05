@@ -430,6 +430,9 @@
   -o-border-radius: 20px;
   border-radius: 20px;
 }
+.devices__dummy {
+  display: none;
+}
 
 .item__temp_off {
   width: 13px;
@@ -1276,6 +1279,7 @@
   }
 
   .devices, .scripts {
+    position: relative;
     flex-direction: column;
     width: auto;
     height: 311px;
@@ -1288,6 +1292,25 @@
     min-width: auto;
     width: 185px;
     margin: 0 0 15px;
+  }
+  .devices__dummy {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: auto;
+    height: 42px;
+    background: #f7f7f7 no-repeat center;
+    background-image: url(../images/Icons/M@1x.png);
+    background-image: -webkit-image-set(url(../images/Icons/M@2x.png) 2x, url(../images/Icons/M@1x.png) 1x);
+    background-image: image-set(url(../images/Icons/M@2x.png) 2x, url(../images/Icons/M@1x.png) 1x);
+    background-image: url(../images/Icons/M.svg);
+    -webkit-border-radius: 20px 20px 0 0;
+    -moz-border-radius: 20px 20px 0 0;
+    -ms-border-radius: 20px 20px 0 0;
+    -o-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
   }
 
   .item__sun_off {
