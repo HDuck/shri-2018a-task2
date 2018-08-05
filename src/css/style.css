@@ -154,6 +154,9 @@
 
 .container {
   width: 375px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .sec-txt {
@@ -186,6 +189,7 @@
   right: 0;
   z-index: 2;
   display: flex;
+  flex: 0 0 auto;
   justify-content: space-between;
   align-items: flex-start;
   width: 335px;
@@ -310,6 +314,7 @@
 }
 
 .content {
+  flex: 1 0 auto;
   width: 355px;
   height: auto;
   margin-top: 66px;
@@ -655,6 +660,7 @@
 }
 
 .footer {
+  flex: 0 0 auto;
   width: 375px;
   padding: 25px 0;
 }
