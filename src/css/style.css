@@ -1310,7 +1310,7 @@
     display: block;
     align-self: flex-end;
     height: 16px;
-    margin-left: 639px;
+    margin: 0 0 2px 639px;
   }
   .fav-devices__types {
     position: static;
