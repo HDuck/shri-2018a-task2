@@ -1368,6 +1368,7 @@
   }
   .fav-scripts__navi {
     display: block;
+    visibility: hidden;
   }
 
   .sec-navi__btn_left, .sec-navi__btn_right {
@@ -1403,13 +1404,14 @@
     flex-wrap: wrap;
     align-content: flex-start;
     width: 100%;
+    height: 330px;
     margin: 0;
     overflow-y: hidden;
   }
   .scripts__item {
     margin-right: 15px;
   }
-  .scripts__item:nth-child(3), .scripts__item:nth-child(6), .scripts__item:nth-child(9) {
+  .scripts__item:nth-child(3), .scripts__item:nth-child(6), .scripts__item:nth-child(9), .scripts__item:nth-child(12), .scripts__item:nth-child(15), .scripts__item:nth-child(18) {
     margin-right: 0;
   }
 
@@ -1426,6 +1428,7 @@
     align-self: flex-end;
     height: 16px;
     margin: 0 0 2px 639px;
+    visibility: hidden;
   }
   .fav-devices__types {
     position: static;
@@ -1436,7 +1439,6 @@
     height: auto;
     margin: 20px 0 0 0;
     overflow-y: hidden;
-    overflow-x: scroll;
   }
   .fav-devices .devices__item, .fav-devices .scripts__item {
     min-width: 185px;

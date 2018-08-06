@@ -267,6 +267,7 @@
 
     &__navi
       display: block
+      visibility: hidden
   
   .sec-navi
 
@@ -298,13 +299,14 @@
     flex-wrap: wrap
     align-content: flex-start
     width: 100%
+    height: 330px
     margin: 0
     overflow-y: hidden
 
     &__item
       margin-right: 15px
 
-      &:nth-child(3), &:nth-child(6), &:nth-child(9)
+      &:nth-child(3), &:nth-child(6), &:nth-child(9), &:nth-child(12), &:nth-child(15), &:nth-child(18)
         margin-right: 0
 
   .fav-devices
@@ -320,6 +322,7 @@
       align-self: flex-end
       height: 16px
       margin: 0 0 2px 639px
+      visibility: hidden
 
     &__types
       position: static
@@ -330,7 +333,6 @@
       height: auto
       margin: 20px 0 0 0
       overflow-y: hidden
-      overflow-x: scroll
 
       &__item
         min-width: 185px

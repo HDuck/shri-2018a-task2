@@ -14,6 +14,40 @@ function init() {
   devList.addEventListener('touchend', function() {
     setTimeout(dummyAppear, 400);  //Задержка, чтобы учесть прокрутку после конца прикосновения
   });
+  
+  //Определяем величину каждого блока
+  var scrCount = document.querySelectorAll('.fav-scripts > .scripts .scripts__item').length;
+  var devCount = document.querySelectorAll('.fav-devices > .devices .devices__item').length;
+  
+  if (scrCount > 9) {
+    
+    //Показываем кнопки навигации
+    var scrNavi = document.getElementsByClassName('fav-scripts__navi')[0];
+    scrNavi.style.visibility = 'visible';
+    
+    //Добавляем вертикальную полосу прокрутки блоку
+    var scripts = document.getElementsByClassName('scripts')[0];
+    scripts.style = 'overflow-y: scroll';
+    
+    //Добавляем обработчики для оживления кнопок
+    scrNavi.childNodes[1].addEventListener('click', scrollLT);
+    scrNavi.childNodes[3].addEventListener('click', scrollRB);
+  }
+  
+  if (devCount > 6) {
+    
+    //Показываем кнопки навигации
+    var devNavi = document.getElementsByClassName('fav-devices__navi')[0];
+    devNavi.style.visibility = 'visible';
+
+    //Добавляем горизонтальную полосу прокрутки блоку
+    var devices = document.getElementsByClassName('devices')[1];
+    devices.style = 'overflow-x: scroll';
+    
+    //Добавляем обработчики для оживления кнопок
+    devNavi.childNodes[1].addEventListener('click', scrollLT);
+    devNavi.childNodes[3].addEventListener('click', scrollRB);    
+  }
 }
 
 window.onload = init;
