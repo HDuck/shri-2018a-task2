@@ -102,16 +102,13 @@ function draw(time, timeMax, elem, scroll, startPos) {
 //Функция для расчета параметра top для прижатия заглушки к низу
 function dummyLoc() {
   var DUMMY_BOTTOM = 493;
-  var FOOT_BOTTOM = 759;
   
   var dummy = document.getElementById('dummy');
   
   var dumOffsParT = dummy.offsetTop;
   var dumOffsWinB = dummy.getBoundingClientRect().bottom;
-  var footOffsWinB = document.getElementsByClassName('footer')[0].getBoundingClientRect().bottom;
 
-  var dumEndLocT = dumOffsParT + (DUMMY_BOTTOM - dumOffsWinB) - (FOOT_BOTTOM - footOffsWinB);
-
+  var dumEndLocT = dumOffsParT + (DUMMY_BOTTOM - dumOffsWinB);
   return dumEndLocT + 'px';
 }
 
