@@ -1,5 +1,3 @@
-"use strict";
-
 //Функция для расчета параметра top для прижатия заглушки к низу
 function dummyLoc() {
   var DUMMY_BOTTOM = 493;

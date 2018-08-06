@@ -1,5 +1,3 @@
-"use strict";
-
 function init() {
   
   //Добавляем обработчик для всех device__item на клик

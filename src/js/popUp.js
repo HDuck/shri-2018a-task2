@@ -1,5 +1,3 @@
-"use strict";
-
 //Анимация открытия pop-up окна
 function openPopUp(evt) {
 

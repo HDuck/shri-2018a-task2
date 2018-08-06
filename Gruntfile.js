@@ -4,6 +4,10 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
   
     clean: {
+      src: {
+        src: 'src/js/scripts.js'
+      },
+      
       release: {
         src: 'release/*'
       },
@@ -38,7 +42,7 @@ module.exports = function(grunt) {
     cssmin: {
       release: {
         files: {
-          'release/css/style.min.css': 'src/css/style.css'
+          'release/css/style.min.css': 'src/css/style-full.css'
         }
       },
 
@@ -53,48 +57,19 @@ module.exports = function(grunt) {
       }
     },
 
-    htmlmin: {
-      release: {
-        options: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeRedundantAttributes: true,
-          removeEmptyAttributes: true,
-          removeAttributeQuotes: true
-        },
-
-        files: {
-          'release/index.html': 'src/index.html'
-        }
-      }
-    },
-
-//    imagemin: {
-//      jpg: {
+//    htmlmin: {
+//      release: {
 //        options: {
-//          optimizationLevel: 3
+//          removeComments: true,
+//          collapseWhitespace: true,
+//          removeRedundantAttributes: true,
+//          removeEmptyAttributes: true,
+//          removeAttributeQuotes: true
 //        },
 //
-//        files: [{
-//          expand: true,
-//          cwd: 'src/img/',
-//          src: ['*.{jpg,jpeg}'],
-//          dest: 'release/img/',
-//          ext: '.jpg'
-//        }]
-//      },
-//
-//      png: {
-//        options: {
-//          optimizationLevel: 3
-//        },
-//
-//        files: [{
-//          expand: true,
-//          cwd: 'src/img/',
-//          src: '*.png',
-//          dest: 'release/img/'
-//        }]
+//        files: {
+//          'release/index.html': 'src/index.html'
+//        }
 //      }
 //    },
     
@@ -121,32 +96,43 @@ module.exports = function(grunt) {
       }
     },
 
-//    w3c_css_validation: {
-//
-//      release: {
-//        options: {
-//          logfile: 'w3cErrors/css/w3c_css_validation(release).json',
-//          warning: '2'
-//        },
-//
-//        src: 'release/css/*.min.css'
-//      },
-//
-//      src: {
-//        options: {
-//          logfile: 'w3cErrors/css/w3c_css_validation(src).json',
-//          warning: '2'
-//        },
-//
-//          src: 'src/css/style.css'
-//      }      
-//    },
+    concat: {
+      
+      js: {
+        src: ['src/js/scrollNavi.js', 'src/js/dummy.js', 'src/js/popUp.js', 'src/js/main.js'],
+        dest: 'src/js/scripts.js'
+      },
+      
+      css: {
+        src: ['src/css/normalize.css', 'src/css/style.css'],
+        dest: 'src/css/style-full.css'
+      }
+    },
 
+    uglify: {
+      options: {
+        mangle: false
+      },
+      
+      src: {
+        files: {
+          'release/js/scripts.min.js': 'src/js/scripts.js',
+        }
+      }
+    },
+    
     copy: {
       img2release: {
         expand: true,
+        cwd: 'src/images',
+        src: ['*.*', '**/*.*', '**/**/*.*'],
+        dest: 'release/images'
+      },
+      
+      html2release: {
+        expand: true,
         cwd: 'src',
-        src: ['images/*.*', 'images/**/*.*', 'images/**/**/*.*'],
+        src: ['index.html'],
         dest: 'release'
       },
 
@@ -163,28 +149,18 @@ module.exports = function(grunt) {
         files: ['src/sass/*.sass', 'src/sass/*.scss'],
         tasks: ['sass:src']
       }
-    },
-
-    svgstore: {
-      default: {
-        files: {
-          'src/img/sprites/sprite.svg': ['src/img/svg/svg_for_sprite/*.svg']
-        }
-      }
     }
   });
-
-//  grunt.loadNpmTasks('grunt-contrib-concat');
+  
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-//  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-w3c-html-validation');
-//  grunt.loadNpmTasks('grunt-w3c-css-validation');
-//  grunt.loadNpmTasks('grunt-svgstore');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['clean', 'sass:release', 'cssmin:release', 'htmlmin', 'validation:release', 'copy']);
+  grunt.registerTask('build', ['clean', 'sass:release', 'concat','cssmin:release', 'validation:src', 'uglify', 'copy']);
 }

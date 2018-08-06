@@ -1,5 +1,5 @@
 {
-  "name": "yandex-shri-2018-task2",
+  "name": "shri-2018a-task2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,17 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HDuck/Yandex-shri-2018-task2.git"
+    "url": "git+https://github.com/HDuck/shri-2018a-task2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HDuck/Yandex-shri-2018-task2/issues"
+    "url": "https://github.com/HDuck/shri-2018a-task2/issues"
   },
-  "homepage": "https://github.com/HDuck/Yandex-shri-2018-task2#readme",
+  "homepage": "https://github.com/HDuck/shri-2018a-task2#readme",
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-htmlmin": "^2.4.0",
