@@ -109,6 +109,7 @@ function dummyLoc() {
   var dumOffsWinB = dummy.getBoundingClientRect().bottom;
 
   var dumEndLocT = dumOffsParT + (DUMMY_BOTTOM - dumOffsWinB);
+
   return dumEndLocT + 'px';
 }
 
