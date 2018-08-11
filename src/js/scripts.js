@@ -173,6 +173,13 @@ function openPopUp(evt) {
 
   var devTypeClass = nDevItem.children[0].className;
 
+  //Проверка на значок у device__item для последующего стилизирования слайдера
+  if (devTypeClass === 'item__temp_off' || devTypeClass === 'item__temp_on') {
+    var devSliderImg = '__heat';
+  } else if (devTypeClass === 'item__sun_off' || devTypeClass === 'item__sun_on') {
+    var devSliderImg = '__light';
+  }
+  
   nDevItem.children[1].className = '';  //Убираем стилизацию у item__desc
   nDevItem.children[1].children[0].className = 'sec-txt_s18b dev-name'; //Добавляем анимацию и стилизацию item__name
   nDevItem.children[1].children[1].className = 'dev-time sec-txt'; //Добавляем стилизацию item__time
@@ -244,7 +251,7 @@ function openPopUp(evt) {
 
     //Позиционируем кнопку-регулятор
     var circBtn = document.createElement('div');
-    circBtn.className = 'dev-circ-slider__btn'
+    circBtn.className = 'dev-circ-slider__btn';
 
     circInner.appendChild(circNum);
     circSlider.appendChild(circBtn);
@@ -275,14 +282,12 @@ function openPopUp(evt) {
   if (bodyEl.clientWidth <= 1365) {
 
     nDevItem.className = 'pop-up__cont';  //Добавляем анимацию расширения окна
-    
+
     //Проверка на значок у device__item для последующего стилизирования слайдера
     if (devTypeClass === 'item__temp_off' || devTypeClass === 'item__temp_on') {
-      var devSliderImg = '__heat';
       nDevItem.children[0].className = 'dev-type__heat';
     } else if (devTypeClass === 'item__sun_off' || devTypeClass === 'item__sun_on') {
-      var devSliderImg = '__light';
-      nDevItem.children[0].className = 'dev-type__light'
+      nDevItem.children[0].className = 'dev-type__light';
     }
 
     //Проверка на 3-ий вид pop-up окна
@@ -307,17 +312,15 @@ function openPopUp(evt) {
         
     //Проверка на тип значка у device__item для последующего стилизирования слайдера
     if (devTypeClass === 'item__temp_off' || devTypeClass === 'item__temp_on') {
-      var devSliderImg = '__heat';
       nDevItem.children[0].className += ' dev-type';
       
       //Создаем цифру рядом с значком температуры
       var numType = document.createElement('span');
-      numType.className = 'dev-circ-slider__type-num'
+      numType.className = 'dev-circ-slider__type-num';
       numType.textContent = '+23';
       nDevItem.appendChild(numType);
   
     } else if (devTypeClass === 'item__sun_off' || devTypeClass === 'item__sun_on') {
-      var devSliderImg = '__light';
       nDevItem.children[0].className += ' dev-type';
     }
 

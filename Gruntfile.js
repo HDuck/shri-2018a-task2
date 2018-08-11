@@ -71,6 +71,35 @@ module.exports = function(grunt) {
       }
     },
     
+    imagemin: {
+
+      png: {
+        options: {
+          optimizationLevel: 3
+        },
+
+        files: [{
+          expand: true,
+          cwd: 'src/images/',
+          src: ['*.png', '**/*.png'],
+          dest: 'release/images/'
+        }]
+      },
+      
+      svg: {
+        options: {
+          optimizationLevel: 3
+        },
+
+        files: [{
+          expand: true,
+          cwd: 'src/images/',
+          src: ['*.svg', '**/*.svg'],
+          dest: 'release/images/'
+        }]
+      }
+    },
+    
     validation: {
       release: {
         options: {
@@ -120,12 +149,6 @@ module.exports = function(grunt) {
     },
     
     copy: {
-      img2release: {
-        expand: true,
-        cwd: 'src/images',
-        src: ['*.*', '**/*.*', '**/**/*.*'],
-        dest: 'release/images'
-      },
 
       docs: {
         expand: true,
@@ -152,10 +175,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-w3c-html-validation');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['clean', 'sass:release', 'concat', 'cssmin:release', 'htmlmin', 'validation', 'uglify', 'copy']);
+  grunt.registerTask('build', ['clean', 'sass:release', 'concat', 'cssmin:release', 'htmlmin', 'imagemin', 'validation', 'uglify', 'copy']);
 }
