@@ -28,8 +28,8 @@ function init() {
     scripts.style = 'overflow-y: scroll';
     
     //Добавляем обработчики для оживления кнопок
-    scrNavi.childNodes[1].addEventListener('click', scrollLT);
-    scrNavi.childNodes[3].addEventListener('click', scrollRB);
+    scrNavi.children[0].addEventListener('click', scrollLT);
+    scrNavi.children[1].addEventListener('click', scrollRB);
   }
   
   if (devCount > 6) {
@@ -37,14 +37,14 @@ function init() {
     //Показываем кнопки навигации
     var devNavi = document.getElementsByClassName('fav-devices__navi')[0];
     devNavi.style.visibility = 'visible';
-
+    
     //Добавляем горизонтальную полосу прокрутки блоку
     var devices = document.getElementsByClassName('devices')[1];
     devices.style = 'overflow-x: scroll';
     
     //Добавляем обработчики для оживления кнопок
-    devNavi.childNodes[1].addEventListener('click', scrollLT);
-    devNavi.childNodes[3].addEventListener('click', scrollRB);    
+    devNavi.children[0].addEventListener('click', scrollLT);
+    devNavi.children[1].addEventListener('click', scrollRB);    
   }
 }
 

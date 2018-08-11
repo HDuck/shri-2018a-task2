@@ -146,8 +146,12 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: ['src/sass/*.sass', 'src/sass/*.scss'],
+        files: ['./src/sass/*.sass', './src/sass/*.scss'],
         tasks: ['sass:src']
+      },
+      js: {
+        files: ['./src/js/dummy.js', './src/js/main.js', './src/js/popUp.js', './src/js/scrollNavi.js'],
+        tasks: ['concat:js']
       }
     }
   });

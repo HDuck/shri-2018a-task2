@@ -171,13 +171,13 @@ function openPopUp(evt) {
   nDevItem.style = 'top: ' + devItemLoc.top + 'px; left: ' + devItemLoc.left + 'px;';  //Позиционируем клон на место оригинального device__item
   popUpWrapper.appendChild(nDevItem);  //Добавляем клон в обертку
 
-  var devTypeClass = nDevItem.childNodes[1].className;
+  var devTypeClass = nDevItem.children[0].className;
 
-  nDevItem.childNodes[3].className = '';  //Убираем стилизацию у item__desc
-  nDevItem.childNodes[3].childNodes[1].className = 'sec-txt_s18b dev-name'; //Добавляем анимацию и стилизацию item__name
-  nDevItem.childNodes[3].childNodes[3].className = 'dev-time sec-txt'; //Добавляем стилизацию item__time
+  nDevItem.children[1].className = '';  //Убираем стилизацию у item__desc
+  nDevItem.children[1].children[0].className = 'sec-txt_s18b dev-name'; //Добавляем анимацию и стилизацию item__name
+  nDevItem.children[1].children[1].className = 'dev-time sec-txt'; //Добавляем стилизацию item__time
 
-  if (!(nDevItem.childNodes[3].childNodes[1].textContent == 'Xiaomi warm floor')) {
+  if (!(nDevItem.children[1].children[0].textContent == 'Xiaomi warm floor')) {
 
     //Добавляем список с стандартными программами регулирования температуры/света
     var devTimeList = document.createElement('ul');
@@ -279,14 +279,14 @@ function openPopUp(evt) {
     //Проверка на значок у device__item для последующего стилизирования слайдера
     if (devTypeClass === 'item__temp_off' || devTypeClass === 'item__temp_on') {
       var devSliderImg = '__heat';
-      nDevItem.childNodes[1].className = 'dev-type__heat';
+      nDevItem.children[0].className = 'dev-type__heat';
     } else if (devTypeClass === 'item__sun_off' || devTypeClass === 'item__sun_on') {
       var devSliderImg = '__light';
-      nDevItem.childNodes[1].className = 'dev-type__light'
+      nDevItem.children[0].className = 'dev-type__light'
     }
 
     //Проверка на 3-ий вид pop-up окна
-    if (!(nDevItem.childNodes[3].childNodes[1].textContent == 'Xiaomi warm floor')) {
+    if (!(nDevItem.children[1].children[0].textContent == 'Xiaomi warm floor')) {
 
       //Стилизуем градиент в зависимости от типа слайдера
       if (devSliderImg === '__light') {
@@ -299,7 +299,7 @@ function openPopUp(evt) {
   //Анимация для desktop версии  
   } else if (bodyEl.clientWidth > 1365) {
     
-    if (nDevItem.childNodes[3].childNodes[1].textContent == 'Xiaomi warm floor') {
+    if (nDevItem.children[1].children[0].textContent == 'Xiaomi warm floor') {
       nDevItem.className = 'pop-up__cont-circ';  //Добавляем анимацию расширения окна для кругового слайдера
     } else {
       nDevItem.className = 'pop-up__cont';  //Добавляем анимацию расширения окна      
@@ -308,7 +308,7 @@ function openPopUp(evt) {
     //Проверка на тип значка у device__item для последующего стилизирования слайдера
     if (devTypeClass === 'item__temp_off' || devTypeClass === 'item__temp_on') {
       var devSliderImg = '__heat';
-      nDevItem.childNodes[1].className += ' dev-type';
+      nDevItem.children[0].className += ' dev-type';
       
       //Создаем цифру рядом с значком температуры
       var numType = document.createElement('span');
@@ -318,11 +318,11 @@ function openPopUp(evt) {
   
     } else if (devTypeClass === 'item__sun_off' || devTypeClass === 'item__sun_on') {
       var devSliderImg = '__light';
-      nDevItem.childNodes[1].className += ' dev-type';
+      nDevItem.children[0].className += ' dev-type';
     }
 
     //Проверка на 3-ий вид pop-up окна
-    if (!(nDevItem.childNodes[3].childNodes[1].textContent == 'Xiaomi warm floor')) {
+    if (!(nDevItem.children[1].children[0].textContent == 'Xiaomi warm floor')) {
 
       //Стилизуем градиент в зависимости от типа слайдера
       if (devSliderImg === '__light') {
@@ -418,8 +418,8 @@ function init() {
     scripts.style = 'overflow-y: scroll';
     
     //Добавляем обработчики для оживления кнопок
-    scrNavi.childNodes[1].addEventListener('click', scrollLT);
-    scrNavi.childNodes[3].addEventListener('click', scrollRB);
+    scrNavi.children[0].addEventListener('click', scrollLT);
+    scrNavi.children[1].addEventListener('click', scrollRB);
   }
   
   if (devCount > 6) {
@@ -427,14 +427,14 @@ function init() {
     //Показываем кнопки навигации
     var devNavi = document.getElementsByClassName('fav-devices__navi')[0];
     devNavi.style.visibility = 'visible';
-
+    
     //Добавляем горизонтальную полосу прокрутки блоку
     var devices = document.getElementsByClassName('devices')[1];
     devices.style = 'overflow-x: scroll';
     
     //Добавляем обработчики для оживления кнопок
-    devNavi.childNodes[1].addEventListener('click', scrollLT);
-    devNavi.childNodes[3].addEventListener('click', scrollRB);    
+    devNavi.children[0].addEventListener('click', scrollLT);
+    devNavi.children[1].addEventListener('click', scrollRB);    
   }
 }
 
