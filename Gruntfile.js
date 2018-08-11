@@ -57,21 +57,19 @@ module.exports = function(grunt) {
       }
     },
 
-//    htmlmin: {
-//      release: {
-//        options: {
-//          removeComments: true,
-//          collapseWhitespace: true,
-//          removeRedundantAttributes: true,
-//          removeEmptyAttributes: true,
-//          removeAttributeQuotes: true
-//        },
-//
-//        files: {
-//          'release/index.html': 'src/index.html'
-//        }
-//      }
-//    },
+    htmlmin: {
+      release: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true
+        },
+
+        files: {
+          'release/index.min.html': 'src/index.html'
+        }
+      }
+    },
     
     validation: {
       release: {
@@ -81,7 +79,7 @@ module.exports = function(grunt) {
         },
 
         files: {
-          src: 'release/index.html'
+          src: 'release/index.min.html'
         }
       },
       src: {
@@ -128,13 +126,6 @@ module.exports = function(grunt) {
         src: ['*.*', '**/*.*', '**/**/*.*'],
         dest: 'release/images'
       },
-      
-      html2release: {
-        expand: true,
-        cwd: 'src',
-        src: ['index.html'],
-        dest: 'release'
-      },
 
       docs: {
         expand: true,
@@ -166,5 +157,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-w3c-html-validation');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['clean', 'sass:release', 'concat','cssmin:release', 'validation:src', 'uglify', 'copy']);
+  grunt.registerTask('build', ['clean', 'sass:release', 'concat', 'cssmin:release', 'htmlmin', 'validation', 'uglify', 'copy']);
 }
