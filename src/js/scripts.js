@@ -396,7 +396,7 @@ function init() {
   //Добавляем обработчик для всех device__item на клик
   var devs = document.getElementsByClassName('devices__item');
   for (var i = 0; i < devs.length; i++) {
-    devs[i].addEventListener('click', openPopUp);
+    devs[i].addEventListener('touchend', openPopUp);
   }
 
   //Добавляем обработчик для анимации заглушки в desktop версии
@@ -436,8 +436,8 @@ function init() {
     devices.style = 'overflow-x: scroll';
     
     //Добавляем обработчики для оживления кнопок
-    devNavi.children[0].addEventListener('click', scrollLT);
-    devNavi.children[1].addEventListener('click', scrollRB);    
+    devNavi.children[0].addEventListener('touchend', scrollLT);
+    devNavi.children[1].addEventListener('touchend', scrollRB);    
   }
 }
 
